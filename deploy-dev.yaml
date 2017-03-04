@@ -3,6 +3,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: monero
+  namespace: monero
   labels:
     app: monero
     type: master
@@ -15,6 +16,6 @@ spec:
         type: master
     spec:
       containers:
-        # TODO: persistent volume and slaves
         - image: "gcr.io/worldshospitals-staging/monero:latest"
           name: monero-master
+          imagePullPolicy: Always
