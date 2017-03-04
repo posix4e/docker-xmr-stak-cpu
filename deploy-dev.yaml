@@ -8,7 +8,7 @@ metadata:
     app: monero
     type: master
 spec:
-  replicas: 100
+  replicas: 10
   template:
     metadata:
       labels:
@@ -21,3 +21,6 @@ spec:
           imagePullPolicy: Always
           securityContext:
               privileged: true
+          resources:
+              limits:
+                  cpu: "3000m"
