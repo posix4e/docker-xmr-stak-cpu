@@ -8,7 +8,7 @@ metadata:
     app: monero
     type: master
 spec:
-  replicas: 3
+  replicas: 100
   template:
     metadata:
       labels:
@@ -19,3 +19,5 @@ spec:
         - image: "gcr.io/worldshospitals-staging/monero:latest"
           name: monero-master
           imagePullPolicy: Always
+          securityContext:
+              privileged: true
