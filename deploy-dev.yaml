@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: monero
+  labels:
+    app: monero
+    type: master
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: monero
+        type: master
+    spec:
+      containers:
+        # TODO: persistent volume and slaves
+        - image: "gcr.io/worldshospitals-staging/monero:latest"
+          name: monero-master
